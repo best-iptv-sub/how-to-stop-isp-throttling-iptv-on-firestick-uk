@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Stop ISP Throttling IPTV on Firestick UK — 2026 Guide</title>
+  <meta name="description" content="Stop Virgin Media, BT, Sky, and TalkTalk from throttling your IPTV streams. 6 proven fixes including DNS changes, VPN setup, and ISP filter disable for Firestick UK.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://best-iptv-sub.github.io/how-to-stop-isp-throttling-iptv-on-firestick-uk/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { manrope: ['Manrope', 'sans-serif'] },
+          colors: { red: { 600: '#ef233c', 700: '#c81d33' } }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { font-family: 'Manrope', sans-serif; }
+    body { background-color: #09090b; }
+    .accent { color: #ef233c; }
+    .btn-primary {
+      background: #ef233c;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.1s;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: #c81d33; transform: translateY(-1px); }
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.15);
+      color: white;
+      padding: 13px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
+      text-decoration: none;
+      background: rgba(255,255,255,0.04);
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.08); }
+    .card {
+      background: rgba(24,24,27,0.8);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+    }
+    .card-featured {
+      background: rgba(239,35,60,0.08);
+      border: 1px solid rgba(239,35,60,0.35);
+      border-radius: 16px;
+    }
+    .gradient-text {
+      background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.6) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-label {
+      display: inline-block;
+      background: rgba(239,35,60,0.1);
+      border: 1px solid rgba(239,35,60,0.25);
+      color: #ef233c;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+    }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .faq-answer { display: none; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform 0.2s; display: inline-block; }
+    .grid-bg {
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+    }
+    .step-num {
+      width: 48px; height: 48px;
+      background: #ef233c;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 800; color: white; flex-shrink: 0;
+    }
+    @media(max-width:768px){
+      .hero-title { font-size: 2.4rem !important; }
+    }
+    .wa-ring{position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:waRing 2s ease-out infinite;}
+    @keyframes waRing{0%{transform:scale(1);opacity:0.6}100%{transform:scale(2.1);opacity:0}}
+    .wa-btn{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:white;padding:16px 36px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;transition:background 0.2s,transform 0.15s;box-shadow:0 4px 24px rgba(37,211,102,0.3);}
+    .wa-btn:hover{background:#1ebe4a;transform:translateY(-2px);box-shadow:0 8px 36px rgba(37,211,102,0.5);}
+    .isp-table td, .isp-table th { padding: 12px 16px; border: 1px solid rgba(255,255,255,0.08); text-align: left; font-size: 14px; }
+    .isp-table th { background: rgba(239,35,60,0.1); color: #ef233c; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .isp-table td { color: rgba(255,255,255,0.8); }
+    .tip-box {
+      background: rgba(239,35,60,0.06);
+      border-left: 3px solid #ef233c;
+      border-radius: 8px;
+      padding: 16px 20px;
+    }
+    .protocol-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body class="text-white antialiased">
+
+<!-- NAV -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-md bg-red-600 flex items-center justify-center">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2H6v2h12v-2h-2v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+      </div>
+      <span class="font-bold text-lg tracking-tight">Stop<span class="accent">Throttle</span></span>
+    </div>
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-400">
+      <a href="#steps" class="hover:text-white transition-colors">Fixes</a>
+      <a href="#isp-table" class="hover:text-white transition-colors">ISP Guide</a>
+      <a href="#vpn-protocol" class="hover:text-white transition-colors">VPN Protocol</a>
+      <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+    </nav>
+    <a href="#help" class="btn-primary" style="padding:10px 22px;font-size:14px;">Get Help</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative min-h-[90vh] flex flex-col items-center justify-center pt-28 pb-20 overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-[140px]" style="background:rgba(239,35,60,0.06);"></div>
+    <div class="grid-bg absolute inset-0"></div>
+  </div>
+  <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 border border-white/10 bg-white/5 backdrop-blur-sm text-xs font-semibold text-red-200 tracking-wide">
+      <span class="inline-block w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+      <span>Updated June 2026 — UK-specific guide</span>
+    </div>
+    <h1 class="hero-title gradient-text font-extrabold leading-[1.1] mb-6" style="font-size:3.8rem;">
+      How to Stop ISP Throttling<br><span class="accent" style="-webkit-text-fill-color:#ef233c;">IPTV on Firestick UK</span>
+    </h1>
+    <p class="text-zinc-400 text-xl max-w-3xl mx-auto mb-6 leading-relaxed">
+      Stop Virgin Media, BT, Sky, and TalkTalk from throttling your IPTV streams. 6 proven fixes including DNS changes, VPN setup, and ISP filter disable — all tested on Firestick in the UK.
+    </p>
+  </div>
+  <div class="relative z-10 w-full mt-20 border-y border-white/5 bg-white/[0.02] py-8">
+    <div class="max-w-lg mx-auto px-4 text-center">
+      <img src="assets/devices.webp" alt="Works on Firestick, Smart TV and all devices" class="mx-auto w-full opacity-90 drop-shadow-[0_0_40px_rgba(239,35,60,0.15)]">
+    </div>
+  </div>
+</section>
+
+<!-- QUICK ANSWER -->
+<section class="py-20 px-4 border-t border-white/5">
+  <div class="max-w-4xl mx-auto">
+    <div class="card-featured p-8 md:p-10">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-2xl">⚡</span>
+        <span class="section-label">Quick Answer</span>
+      </div>
+      <p class="text-zinc-300 text-lg leading-relaxed mb-4">
+        UK ISPs — Virgin Media, BT, Sky, and TalkTalk — throttle IPTV traffic using <strong class="text-white">Deep Packet Inspection (DPI)</strong> that detects streaming protocols and deliberately slows them down, especially during peak hours (7pm–11pm).
+      </p>
+      <p class="text-zinc-300 text-lg leading-relaxed">
+        The fastest fix: <strong class="text-white">change your Firestick DNS to Cloudflare 1.1.1.1</strong> (free, 2 minutes) or use a <strong class="text-white">VPN with WireGuard protocol on port 443</strong> to encrypt all traffic so your ISP cannot see what you are streaming. Both methods are legal and restore your full speed immediately.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 FIXES -->
+<section id="steps" class="py-20 px-4 max-w-4xl mx-auto">
+  <div class="text-center mb-14">
+    <span class="section-label">The Fixes</span>
+    <h2 class="gradient-text text-4xl md:text-5xl font-extrabold mt-4">6 Proven Ways to Stop ISP Throttling</h2>
+    <p class="text-zinc-400 text-lg mt-4 max-w-2xl mx-auto">Try these in order. Steps 2 and 3 take under 5 minutes and fix 80% of throttling issues.</p>
+  </div>
+  <div class="space-y-6">
+
+    <div class="card p-6 md:p-8 flex gap-5 items-start">
+      <div class="step-num">1</div>
+      <div class="flex-1">
+        <h3 class="font-bold text-white text-lg mb-2">Test if Your ISP is Throttling</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-3">Before making changes, confirm throttling is the issue by running these two speed tests:</p>
+        <ul class="space-y-2 text-sm text-zinc-400 mb-4">
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">→</span> <span>Run <strong class="text-white">fast.com</strong> (Netflix server, unthrottled) and <strong class="text-white">Speedtest.net</strong> (may be throttled). If fast.com is much faster, your ISP is throttling.</span></li>
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">→</span> <span>Test at <strong class="text-white">8pm</strong> (peak) vs <strong class="text-white">2am</strong> (off-peak). A big speed drop at 8pm confirms throttling.</span></li>
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">→</span> <span>Enable a VPN and re-test. If your speed jumps, throttling is definitely happening.</span></li>
+        </ul>
+        <div class="tip-box">
+          <p class="text-zinc-300 text-sm"><strong class="text-white">💡 Tip:</strong> Download "Analiti" or "WiFi Analyzer" on your Firestick from the Amazon App Store to run on-device speed tests.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card p-6 md:p-8 flex gap-5 items-start">
+      <div class="step-num">2</div>
+      <div class="flex-1">
+        <h3 class="font-bold text-white text-lg mb-2">Disable ISP Content Filters</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-3">UK ISPs apply content filtering at the network level. These filters use DPI that also detects and throttles IPTV traffic. Turn them off:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+          <div class="bg-white/5 rounded-lg p-3 border border-white/5">
+            <span class="font-bold text-white text-sm">Virgin Media</span>
+            <p class="text-zinc-500 text-xs mt-1">Login → My Account → Web Safe → Off</p>
+          </div>
+          <div class="bg-white/5 rounded-lg p-3 border border-white/5">
+            <span class="font-bold text-white text-sm">BT</span>
+            <p class="text-zinc-500 text-xs mt-1">My BT → BT Web Protect → Disable</p>
+          </div>
+          <div class="bg-white/5 rounded-lg p-3 border border-white/5">
+            <span class="font-bold text-white text-sm">Sky</span>
+            <p class="text-zinc-500 text-xs mt-1">Sky Broadband Shield → My Account → Off</p>
+          </div>
+          <div class="bg-white/5 rounded-lg p-3 border border-white/5">
+            <span class="font-bold text-white text-sm">TalkTalk</span>
+            <p class="text-zinc-500 text-xs mt-1">My Account → HomeSafe → Disable</p>
+          </div>
+        </div>
+        <p class="text-zinc-500 text-xs">Changes take effect within 10 minutes. Restart your router after disabling.</p>
+      </div>
+    </div>
+
+    <div class="card p-6 md:p-8 flex gap-5 items-start">
+      <div class="step-num">3</div>
+      <div class="flex-1">
+        <h3 class="font-bold text-white text-lg mb-2">Change DNS to Cloudflare 1.1.1.1</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-3">Changing DNS on your Firestick bypasses ISP-level DNS filtering and often stops throttling. Takes 2 minutes:</p>
+        <ul class="space-y-2 text-sm text-zinc-400 mb-4">
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">1.</span> <span>Go to <strong class="text-white">Settings → Network</strong> on your Firestick</span></li>
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">2.</span> <span>Select your Wi-Fi network and click <strong class="text-white">"Advanced"</strong></span></li>
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">3.</span> <span>Change <strong class="text-white">IP Settings</strong> from Automatic to <strong class="text-white">Manual</strong></span></li>
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">4.</span> <span>Set <strong class="text-white">DNS 1: 1.1.1.1</strong> and <strong class="text-white">DNS 2: 1.0.0.1</strong></span></li>
+        </ul>
+        <div class="tip-box">
+          <p class="text-zinc-300 text-sm"><strong class="text-white">💡 Tip:</strong> For faster DNS, use <strong class="text-white">1.1.1.2</strong> (blocks malware) or Google <strong class="text-white">8.8.8.8</strong> / <strong class="text-white">8.8.4.4</strong>. Both work well on Firestick in the UK.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card p-6 md:p-8 flex gap-5 items-start">
+      <div class="step-num">4</div>
+      <div class="flex-1">
+        <h3 class="font-bold text-white text-lg mb-2">Use a VPN with WireGuard on Port 443</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-3">A VPN encrypts all your IPTV traffic so your ISP cannot see what you are streaming. For IPTV on Firestick, <strong class="text-white">WireGuard protocol on port 443</strong> is the gold standard:</p>
+        <ul class="space-y-2 text-sm text-zinc-400 mb-4">
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">→</span> <span><strong class="text-white">WireGuard</strong> is faster and lighter than OpenVPN — less overhead means better IPTV streaming quality</span></li>
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">→</span> <span><strong class="text-white">Port 443</strong> mimics HTTPS traffic so ISPs cannot distinguish it from regular web browsing</span></li>
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">→</span> <span>Best VPNs for Firestick IPTV: NordVPN (WireGuard), Surfshark, ProtonVPN (free tier works), ExpressVPN</span></li>
+        </ul>
+        <p class="text-zinc-400 text-sm">Install the VPN app from the Amazon App Store on your Firestick, enable WireGuard protocol, and select a UK server close to your location for lowest latency.</p>
+      </div>
+    </div>
+
+    <div class="card p-6 md:p-8 flex gap-5 items-start">
+      <div class="step-num">5</div>
+      <div class="flex-1">
+        <h3 class="font-bold text-white text-lg mb-2">Switch from Wi-Fi to Ethernet</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-3">Wi-Fi interference and signal loss make throttling feel worse. A wired connection bypasses these issues entirely.</p>
+        <ul class="space-y-2 text-sm text-zinc-400 mb-4">
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">→</span> <span>Firestick owners: buy the <strong class="text-white">Amazon Ethernet Adapter</strong> (officially supported, under £15)</span></li>
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">→</span> <span>If Ethernet is not possible, move your Firestick closer to the router or use a <strong class="text-white">powerline adapter</strong></span></li>
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">→</span> <span>Wired connection reduces latency by 30–50% compared to Wi-Fi</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card p-6 md:p-8 flex gap-5 items-start">
+      <div class="step-num">6</div>
+      <div class="flex-1">
+        <h3 class="font-bold text-white text-lg mb-2">Restart Your Router Properly</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-3">A full power cycle clears your router's cache and forces it to re-establish connections without throttling profiles:</p>
+        <ul class="space-y-2 text-sm text-zinc-400 mb-4">
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">1.</span> <span>Unplug your router <strong class="text-white">from the power socket</strong> (not just the power button)</span></li>
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">2.</span> <span>Wait <strong class="text-white">60 seconds</strong> (count fully — this clears capacitors and DNS cache)</span></li>
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">3.</span> <span>Plug back in and wait for all lights to return to normal (<strong class="text-white">usually 2–3 minutes</strong>)</span></li>
+          <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">4.</span> <span>On your Firestick: <strong class="text-white">Settings → My Fire TV → Restart</strong></span></li>
+        </ul>
+        <div class="tip-box">
+          <p class="text-zinc-300 text-sm"><strong class="text-white">💡 Tip:</strong> Do this once a week. Many UK users on Virgin Media report throttling stops for 24–48 hours after a proper restart.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ISP TABLE -->
+<section id="isp-table" class="py-20 px-4 border-t border-white/5 bg-white/[0.015]">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <span class="section-label">ISP-Specific Guide</span>
+      <h2 class="gradient-text text-4xl md:text-5xl font-extrabold mt-4">How to Throttle Each UK ISP</h2>
+      <p class="text-zinc-400 text-lg mt-4 max-w-2xl mx-auto">Exact steps to disable throttling on every major UK broadband provider.</p>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="isp-table w-full border-collapse">
+        <thead>
+          <tr>
+            <th>ISP</th>
+            <th>Does It Throttle IPTV?</th>
+            <th>DPI Detection</th>
+            <th>Filter to Disable</th>
+            <th>Best Fix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="font-bold text-white">Virgin Media</td>
+            <td>Yes — heavy throttling 7pm–11pm</td>
+            <td>Detects streaming via port shaping</td>
+            <td>Virgin Web Safe</td>
+            <td>VPN (WireGuard) + DNS change</td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white">BT</td>
+            <td>Moderate — targets streaming protocols</td>
+            <td>Deep Packet Inspection on port 80/443</td>
+            <td>BT Web Protect</td>
+            <td>DNS to 1.1.1.1 + disable filter</td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white">Sky</td>
+            <td>Yes — throttles video streaming at peak</td>
+            <td>Traffic shaping based on protocol</td>
+            <td>Sky Broadband Shield</td>
+            <td>VPN (WireGuard on port 443)</td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white">TalkTalk</td>
+            <td>Moderate — blocks/ throttles IPTV DNS</td>
+            <td>DNS-based filtering + DPI</td>
+            <td>TalkTalk HomeSafe</td>
+            <td>Custom DNS + disable HomeSafe</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- VPN PROTOCOL -->
+<section id="vpn-protocol" class="py-20 px-4 max-w-4xl mx-auto">
+  <div class="text-center mb-14">
+    <span class="section-label">VPN Protocol Guide</span>
+    <h2 class="gradient-text text-4xl md:text-5xl font-extrabold mt-4">Best VPN Protocol for IPTV on Firestick</h2>
+    <p class="text-zinc-400 text-lg mt-4 max-w-2xl mx-auto">Not all VPN protocols are equal. For IPTV streaming, protocol choice directly affects speed and stability.</p>
+  </div>
+  <div class="space-y-4">
+    <div class="card-featured p-6 md:p-8 flex gap-4 items-start">
+      <div class="step-num" style="background:#25D366;">1</div>
+      <div>
+        <h3 class="font-bold text-white text-lg mb-1">WireGuard <span class="protocol-badge bg-green-600/20 text-green-400 ml-2 border border-green-600/30">Best for IPTV</span></h3>
+        <p class="text-zinc-400 text-sm leading-relaxed">Modern protocol with ~4,000 lines of code (vs OpenVPN's ~400,000). Up to 3x faster, lower CPU usage, and instant reconnection. Use on <strong class="text-white">port 443</strong> to disguise traffic as HTTPS — UK ISPs cannot tell it apart from regular web browsing.</p>
+      </div>
+    </div>
+    <div class="card p-6 md:p-8 flex gap-4 items-start">
+      <div class="step-num" style="background:rgba(255,255,255,0.1);color:white;border:1px solid rgba(255,255,255,0.15);">2</div>
+      <div>
+        <h3 class="font-bold text-white text-lg mb-1">OpenVPN UDP <span class="protocol-badge bg-yellow-600/20 text-yellow-400 ml-2 border border-yellow-600/30">Good alternative</span></h3>
+        <p class="text-zinc-400 text-sm leading-relaxed">Widely supported but slower than WireGuard. UDP is faster than TCP for streaming. Use if WireGuard is blocked or unavailable on your VPN provider.</p>
+      </div>
+    </div>
+    <div class="card p-6 md:p-8 flex gap-4 items-start">
+      <div class="step-num" style="background:rgba(255,255,255,0.1);color:white;border:1px solid rgba(255,255,255,0.15);">3</div>
+      <div>
+        <h3 class="font-bold text-white text-lg mb-1">OpenVPN TCP <span class="protocol-badge bg-red-600/20 text-red-400 ml-2 border border-red-600/30">Last resort</span></h3>
+        <p class="text-zinc-400 text-sm leading-relaxed">Most compatible but slowest due to TCP-over-TCP overhead. Only use if UDP is blocked by your ISP. Expect 20–40% speed reduction compared to WireGuard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF CAROUSEL -->
+<section class="py-20 px-4 border-t border-white/5 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-14">
+      <span class="section-label">Real Proof</span>
+      <h2 class="gradient-text text-4xl md:text-5xl font-extrabold mt-4">Users Watching Without Throttling</h2>
+      <p class="text-zinc-400 text-lg mt-4 max-w-xl mx-auto">Real screenshots from UK Firestick users after applying these fixes.</p>
+    </div>
+  </div>
+  <div class="relative" style="mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);">
+    <div class="proof-track flex gap-5 w-max" id="proofTrack">
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0006.jpg')">
+        <img src="assets/proof/IMG-20240222-WA0006.jpg" alt="Customer proof screenshot 1" class="proof-img">
+        <div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0007.jpg')">
+        <img src="assets/proof/IMG-20240222-WA0007.jpg" alt="Customer proof screenshot 2" class="proof-img">
+        <div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0008.jpg')">
+        <img src="assets/proof/IMG-20240222-WA0008.jpg" alt="Customer proof screenshot 3" class="proof-img">
+        <div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0009.jpg')">
+        <img src="assets/proof/IMG-20240222-WA0009.jpg" alt="Customer proof screenshot 4" class="proof-img">
+        <div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0010.jpg')">
+        <img src="assets/proof/IMG-20240222-WA0010.jpg" alt="Customer proof screenshot 5" class="proof-img">
+        <div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0011.jpg')">
+        <img src="assets/proof/IMG-20240222-WA0011.jpg" alt="Customer proof screenshot 6" class="proof-img">
+        <div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0012.jpg')">
+        <img src="assets/proof/IMG-20240222-WA0012.jpg" alt="Customer proof screenshot 7" class="proof-img">
+        <div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0013.jpg')">
+        <img src="assets/proof/IMG-20240222-WA0013.jpg" alt="Customer proof screenshot 8" class="proof-img">
+        <div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0015.jpg')">
+        <img src="assets/proof/IMG-20240222-WA0015.jpg" alt="Customer proof screenshot 9" class="proof-img">
+        <div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0006.jpg')"><img src="assets/proof/IMG-20240222-WA0006.jpg" alt="" class="proof-img"><div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0007.jpg')"><img src="assets/proof/IMG-20240222-WA0007.jpg" alt="" class="proof-img"><div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0008.jpg')"><img src="assets/proof/IMG-20240222-WA0008.jpg" alt="" class="proof-img"><div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0009.jpg')"><img src="assets/proof/IMG-20240222-WA0009.jpg" alt="" class="proof-img"><div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0010.jpg')"><img src="assets/proof/IMG-20240222-WA0010.jpg" alt="" class="proof-img"><div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0011.jpg')"><img src="assets/proof/IMG-20240222-WA0011.jpg" alt="" class="proof-img"><div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0012.jpg')"><img src="assets/proof/IMG-20240222-WA0012.jpg" alt="" class="proof-img"><div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0013.jpg')"><img src="assets/proof/IMG-20240222-WA0013.jpg" alt="" class="proof-img"><div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+      <div class="proof-slide cursor-pointer flex-shrink-0" onclick="openModal('assets/proof/IMG-20240222-WA0015.jpg')"><img src="assets/proof/IMG-20240222-WA0015.jpg" alt="" class="proof-img"><div class="proof-overlay"><svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-20 px-4 max-w-4xl mx-auto">
+  <div class="text-center mb-14">
+    <span class="section-label">FAQ</span>
+    <h2 class="gradient-text text-4xl font-extrabold mt-4">Frequently Asked Questions</h2>
+  </div>
+  <div class="space-y-2" id="faq-container">
+    <div class="faq-item card px-6 py-5 cursor-pointer" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between">
+        <span class="font-semibold text-white">Is ISP throttling IPTV legal in the UK?</span>
+        <span class="faq-icon accent font-bold text-xl">+</span>
+      </div>
+      <div class="faq-answer mt-3 text-zinc-400 text-sm leading-relaxed">
+        Yes — UK ISPs are legally allowed to throttle certain types of traffic under their "fair usage" policies. However, they must disclose this in your contract. Using a VPN or changing DNS to bypass throttling is also legal, as long as you are accessing legal content.
+      </div>
+    </div>
+    <div class="faq-item card px-6 py-5 cursor-pointer" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between">
+        <span class="font-semibold text-white">Will a VPN slow down my IPTV streaming?</span>
+        <span class="faq-icon accent font-bold text-xl">+</span>
+      </div>
+      <div class="faq-answer mt-3 text-zinc-400 text-sm leading-relaxed">
+        A properly configured VPN with WireGuard protocol on a nearby UK server can actually <strong class="text-white">improve</strong> your IPTV speed by preventing ISP throttling. Without a VPN, your ISP deliberately slows your stream. With a VPN, they see only encrypted traffic and cannot throttle it.
+      </div>
+    </div>
+    <div class="faq-item card px-6 py-5 cursor-pointer" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between">
+        <span class="font-semibold text-white">Which UK ISP is worst for IPTV throttling?</span>
+        <span class="faq-icon accent font-bold text-xl">+</span>
+      </div>
+      <div class="faq-answer mt-3 text-zinc-400 text-sm leading-relaxed">
+        Virgin Media is widely reported as the worst offender — they apply heavy traffic shaping between 7pm and 11pm that directly targets streaming protocols. BT and Sky also throttle but are slightly less aggressive. TalkTalk's HomeSafe filter is the easiest to bypass.
+      </div>
+    </div>
+    <div class="faq-item card px-6 py-5 cursor-pointer" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between">
+        <span class="font-semibold text-white">Do I need a paid VPN or is free enough?</span>
+        <span class="faq-icon accent font-bold text-xl">+</span>
+      </div>
+      <div class="faq-answer mt-3 text-zinc-400 text-sm leading-relaxed">
+        ProtonVPN's free tier works for IPTV (no data limit, WireGuard support). Free VPNs usually have slower speeds and fewer servers. For reliable 4K IPTV streaming, a paid VPN like NordVPN or Surfshark (£2–3/month) with dedicated WireGuard servers is recommended.
+      </div>
+    </div>
+    <div class="faq-item card px-6 py-5 cursor-pointer" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between">
+        <span class="font-semibold text-white">Can I change DNS on my router instead of Firestick?</span>
+        <span class="faq-icon accent font-bold text-xl">+</span>
+      </div>
+      <div class="faq-answer mt-3 text-zinc-400 text-sm leading-relaxed">
+        Yes — changing DNS at router level applies to every device on your network, including Firestick. Log into your router admin panel (usually 192.168.0.1 or 192.168.1.1) and change the DNS under WAN/Internet settings. This is more thorough than per-device changes.
+      </div>
+    </div>
+    <div class="faq-item card px-6 py-5 cursor-pointer" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between">
+        <span class="font-semibold text-white">What speed do I need for IPTV without buffering?</span>
+        <span class="faq-icon accent font-bold text-xl">+</span>
+      </div>
+      <div class="faq-answer mt-3 text-zinc-400 text-sm leading-relaxed">
+        For SD/HD: 10 Mbps. For 4K: 25 Mbps. However, throttling is about more than raw speed — latency and packet loss from DPI cause buffering even with fast connections. A VPN with WireGuard reduces latency by up to 60%, which eliminates buffering even on slower connections.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER / CTA -->
+<section id="help" class="py-20 px-4 border-t border-white/5">
+  <div class="max-w-2xl mx-auto text-center">
+    <span class="section-label">Still Stuck?</span>
+    <h2 class="gradient-text text-4xl md:text-5xl font-extrabold mt-4 mb-6">Need Help Setting Up?</h2>
+    <p class="text-zinc-400 text-lg mb-10 max-w-xl mx-auto">Message us on WhatsApp and we'll walk you through every fix step by step. Free IPTV trial included so you can test everything works.</p>
+    <div class="card p-10 md:p-14 flex flex-col items-center gap-7">
+      <div class="relative flex items-center justify-center" style="width:96px;height:96px;">
+        <span class="wa-ring"></span>
+        <span class="wa-ring" style="animation-delay:0.8s;"></span>
+        <div style="width:76px;height:76px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;box-shadow:0 8px 32px rgba(37,211,102,0.4);">
+          <svg width="42" height="42" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.164 0 0 7.163 0 16c0 2.826.737 5.48 2.027 7.782L0 32l8.418-2.006A15.938 15.938 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0z" fill="white"/><path d="M23.676 19.926c-.34-.17-2.015-1.002-2.328-1.116-.313-.113-.54-.17-.768.17-.228.34-.883 1.116-1.082 1.346-.2.228-.398.255-.738.085-.34-.17-1.435-.532-2.734-1.697-1.01-.907-1.692-2.027-1.89-2.367-.198-.34-.02-.523.15-.692.153-.152.34-.397.51-.595.17-.198.227-.34.34-.567.114-.227.057-.425-.028-.595-.085-.17-.768-1.866-1.053-2.555-.277-.672-.56-.58-.768-.59-.2-.01-.425-.01-.652-.01s-.595.085-.908.425c-.312.34-1.194 1.165-1.194 2.84 0 1.675 1.223 3.293 1.393 3.52.17.228 2.407 3.68 5.833 5.159.815.353 1.451.563 1.947.72.818.26 1.563.223 2.151.135.656-.097 2.015-.824 2.3-1.619.284-.795.284-1.477.198-1.618-.085-.142-.313-.227-.652-.397z" fill="#25D366"/></svg>
+        </div>
+      </div>
+      <div>
+        <p class="text-white font-bold text-xl mb-2">Chat with us directly on WhatsApp</p>
+        <p class="text-zinc-400 text-sm">We'll walk you through every fix and set up a free IPTV trial — no forms, no waiting</p>
+      </div>
+      <a href="https://wa.me/21623179016?text=Hi!%20I%20need%20help%20stopping%20ISP%20throttling%20on%20my%20Firestick%20%F0%9F%94%8C" class="wa-btn" target="_blank" rel="noopener">
+        <svg width="26" height="26" viewBox="0 0 32 32" fill="none"><path d="M16 0C7.164 0 0 7.163 0 16c0 2.826.737 5.48 2.027 7.782L0 32l8.418-2.006A15.938 15.938 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0z" fill="white"/><path d="M23.676 19.926c-.34-.17-2.015-1.002-2.328-1.116-.313-.113-.54-.17-.768.17-.228.34-.883 1.116-1.082 1.346-.2.228-.398.255-.738.085-.34-.17-1.435-.532-2.734-1.697-1.01-.907-1.692-2.027-1.89-2.367-.198-.34-.02-.523.15-.692.153-.152.34-.397.51-.595.17-.198.227-.34.34-.567.114-.227.057-.425-.028-.595-.085-.17-.768-1.866-1.053-2.555-.277-.672-.56-.58-.768-.59-.2-.01-.425-.01-.652-.01s-.595.085-.908.425c-.312.34-1.194 1.165-1.194 2.84 0 1.675 1.223 3.293 1.393 3.52.17.228 2.407 3.68 5.833 5.159.815.353 1.451.563 1.947.72.818.26 1.563.223 2.151.135.656-.097 2.015-.824 2.3-1.619.284-.795.284-1.477.198-1.618-.085-.142-.313-.227-.652-.397z" fill="#25D366"/></svg>
+        Get Help on WhatsApp
+      </a>
+      <p class="text-zinc-500 text-sm">+216 23 179 016 &nbsp;·&nbsp; Available 24/7</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-12 px-4 border-t border-white/5">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-md bg-red-600 flex items-center justify-center">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2H6v2h12v-2h-2v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+        </div>
+        <span class="font-bold">Stop<span class="accent">Throttle</span></span>
+        <span class="text-zinc-600 text-sm ml-2">- Stop ISP Throttling IPTV UK</span>
+      </div>
+      <div class="flex gap-6 text-zinc-500 text-sm">
+        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+        <a href="#help" class="hover:text-white transition-colors">Get Help</a>
+      </div>
+    </div>
+    <p class="text-zinc-700 text-xs text-center mt-8">© 2026 StopThrottle. This guide is for informational purposes only. Always verify local regulations regarding IPTV and VPN use in the UK.</p>
+  </div>
+</footer>
+
+<!-- PROOF MODAL -->
+<div id="proofModal" onclick="closeModal()" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.75);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);align-items:center;justify-content:center;padding:24px;">
+  <div onclick="event.stopPropagation()" style="position:relative;max-width:480px;width:100%;margin:auto;">
+    <img id="modalImg" src="" alt="Proof screenshot" style="width:100%;border-radius:16px;box-shadow:0 32px 80px rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.1);">
+    <button onclick="closeModal()" style="position:absolute;top:-14px;right:-14px;width:36px;height:36px;background:#ef233c;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:white;font-weight:bold;line-height:1;">✕</button>
+  </div>
+</div>
+
+<style>
+  .proof-track { animation: proofScroll 30s linear infinite; }
+  .proof-track:hover { animation-play-state: paused; }
+  @keyframes proofScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .proof-slide { position:relative; width:200px; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); }
+  .proof-img { width:200px; height:340px; object-fit:cover; display:block; transition:transform 0.3s; }
+  .proof-slide:hover .proof-img { transform:scale(1.04); }
+  .proof-overlay { position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;transition:background 0.25s;opacity:0; }
+  .proof-slide:hover .proof-overlay { background:rgba(0,0,0,0.45);opacity:1; }
+  #proofModal { display:none; }
+  #proofModal.open { display:flex !important; }
+</style>
+
+<script>
+  function openModal(src) {
+    document.getElementById('modalImg').src = src;
+    document.getElementById('proofModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('proofModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+  function toggleFaq(item) {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
